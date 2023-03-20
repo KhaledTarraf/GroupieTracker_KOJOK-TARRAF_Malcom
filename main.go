@@ -22,7 +22,7 @@ type Continents struct {
 
 func Home(w http.ResponseWriter, r *http.Request) {
 	// Utilise un template HTML pour afficher la page d'accueil
-	tmpl := template.Must(template.ParseFiles("index.html"))
+	tmpl := template.Must(template.ParseFiles("html/index.html"))
 	err := tmpl.Execute(w, nil)
 	if err != nil {
 		log.Fatal(err)
@@ -45,7 +45,7 @@ func Charac(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Utilise un template HTML pour afficher les données
-	tmpl := template.Must(template.ParseFiles("chara.html"))
+	tmpl := template.Must(template.ParseFiles("html/chara.html"))
 	err = tmpl.Execute(w, chars)
 	if err != nil {
 		log.Fatal(err)
@@ -68,7 +68,7 @@ func Conti(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Utilise un template HTML pour afficher les données
-	tmpl := template.Must(template.ParseFiles("conti.html"))
+	tmpl := template.Must(template.ParseFiles("html/conti.html"))
 	err = tmpl.Execute(w, chars)
 	if err != nil {
 		log.Fatal(err)
@@ -76,6 +76,10 @@ func Conti(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+
+	fs := http.FileServer(http.Dir("assets"))                 // création du gestionnaire de fichiers statiques pour le dossier css
+	http.Handle("/assets/", http.StripPrefix("/assets/", fs)) // définition de la route pour le dossier css
+
 	http.HandleFunc("/", Home)
 	http.HandleFunc("/Characters", Charac)
 	http.HandleFunc("/Continents", Conti)
