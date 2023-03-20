@@ -22,6 +22,7 @@
             text-decoration: none;
             color: beige;
         }
+
         a:hover {
             color: #000000;
         }
@@ -54,6 +55,16 @@
             list-style-type: none;
             margin: 0.7rem;
             padding: 0.4rem;
+        }
+
+        .content {
+            color: beige;
+            font-size: 40px;
+            margin-top: 80px;
+            flex: 1 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         footer {
@@ -111,7 +122,6 @@
             font-size: 20px;
             padding: 50px 0px 100px;
         }
-        
     </style>
     <title>GOT World</Header>
     </title>
@@ -122,19 +132,28 @@
     <div class="header">
 
         <div class="logo">
-            <a href="index.html">
+            <a href="/">
                 <img src="img/game-of-thrones.svg" alt="logo">
             </a>
         </div>
 
         <div class="liens">
             <ul class="menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="chara.html">Characters</a></li>
-                <li><a href="conti.html">Continents</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/Characters">Characters</a></li>
+                <li><a href="/Continents">Continents</a></li>
             </ul>
         </div>
 
+    </div>
+
+    <div class="content">
+        <h1>Continents</h1>
+        <ul>
+            {{range .}}
+            <li>{{.Name}}</li>
+            {{end}}
+        </ul>
     </div>
 
     <footer class="footer">
@@ -161,7 +180,7 @@
                 <ul class="media-list">
                     <li><a href="https://www.instagram.com"><img src="img/insta.svg" alt="Instagram"></a></li>
                     <li><a href="https://twitter.com/?lang=fr"><img src="img/twitter.svg" alt="Twitter"></a></li>
-                    <li><a href="https://github.com/KhaledTarraf/GT_Exercice_KOJOK-TARRAF_Malcom"><img
+                    <li><a href="https://github.com/KhaledTarraf/GroupieTracker_KOJOK-TARRAF_Malcom"><img
                                 src="img/github.svg" alt="Github"></a></li>
                     <li><a href="https://www.youtube.com"><img src="img/youtube.svg" alt="Youtube"></a></li>
                 </ul>

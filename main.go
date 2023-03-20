@@ -77,8 +77,8 @@ func Conti(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	http.HandleFunc("/", Home)
-	http.HandleFunc("/Chara/", Charac)
-	http.HandleFunc("/Conti/", Conti)
+	http.HandleFunc("/Characters", Charac)
+	http.HandleFunc("/Continents", Conti)
 
 	fmt.Println("(http://localhost:8080/) - Server is running on port 8080")
 	log.Fatal(http.ListenAndServe(":8080", nil))
